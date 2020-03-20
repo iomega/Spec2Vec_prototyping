@@ -721,7 +721,7 @@ def load_MGF_data(file_mgf,
             print("No data was imported. Could not find MGF file", file_mgf)
 
     # Read data from files if no pre-stored data is found:
-    if len(spectra) == 0 or file_json is None:
+    if len(spectra) == 0:
         
         # Scale the min_peak filter
         def min_peak_scaling(x, A, B):
