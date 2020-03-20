@@ -691,9 +691,12 @@ def load_MGF_data(file_mgf,
         try: 
             spectra_dict = functions.json_to_dict(file_json)
             spectra_metadata = pd.read_csv(file_json[:-5] + "_metadata.csv")
-            print("Spectra json file found and loaded.")
             spectra = dict_to_spectrum(spectra_dict)
-            collect_new_data = False
+            if len(spectra) > 0:
+                print("Spectra json file found and loaded.")
+                collect_new_data = False
+            else:
+                print("Found json file empty or not expected format.")
             
             if create_docs:
                 with open(file_json[:-4] + "txt", "r") as f:
@@ -710,13 +713,15 @@ def load_MGF_data(file_mgf,
             print(20 * '--')
             print("Could not find file ", file_json) 
             print(20 * '--')
-            if os.path.isfile(file_mgf):
-                print("Data will be imported from ", file_mgf)
-            else:
-                print("Could also not find MGF file", file_mgf)
+
+    if len(spectra) == 0: # No data was loaded.
+        if os.path.isfile(file_mgf):
+            print("Data will be imported from ", file_mgf)
+        else:
+            print("No data was imported. Could not find MGF file", file_mgf)
 
     # Read data from files if no pre-stored data is found:
-    if spectra_dict == {} or file_json is None:
+    if len(spectra) == 0 or file_json is None:
         
         # Scale the min_peak filter
         def min_peak_scaling(x, A, B):
