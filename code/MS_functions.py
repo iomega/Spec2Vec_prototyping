@@ -40,7 +40,6 @@ from rdkit.Chem import AllChem
 
 
 
-
 ## --------------------------------------------------------------------------------------------------
 ## ---------------------------- Spectrum class ------------------------------------------------------
 ## --------------------------------------------------------------------------------------------------
@@ -711,7 +710,10 @@ def load_MGF_data(file_mgf,
             print(20 * '--')
             print("Could not find file ", file_json) 
             print(20 * '--')
-            print("Data will be imported from ", file_mgf)
+            if os.path.isfile(file_mgf):
+                print("Data will be imported from ", file_mgf)
+            else:
+                print("Could also not find MGF file", file_mgf)
 
     # Read data from files if no pre-stored data is found:
     if spectra_dict == {} or file_json is None:
