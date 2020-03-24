@@ -941,7 +941,7 @@ def mol_converter(mol_input, input_type, output_type, method = 'openbabel'):
             print("error when converting...")
             mol_output = None
             
-        return mol_output   
+        return mol_output
 
 
 
