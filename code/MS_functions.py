@@ -38,8 +38,6 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 
 
-
-
 ## --------------------------------------------------------------------------------------------------
 ## ---------------------------- Spectrum class ------------------------------------------------------
 ## --------------------------------------------------------------------------------------------------
@@ -492,6 +490,8 @@ def load_MS_data(path_data, path_json,
     Prototype. Needs to be replaces by more versatile parser, accepting more MS data formats.
     
     # TODO: add documentation.
+    
+    #TODO: consider removing this function alltogether and only allow for MGF input.
     """
 
     spectra = []
