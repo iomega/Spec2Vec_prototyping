@@ -34,7 +34,7 @@ from sklearn.decomposition import PCA
 # Imports from Spec2Vec functions
 import helper_functions as functions
 
-       
+
 class EpochLogger(CallbackAny2Vec):
     '''Callback to log information about training progress.
     Used to keep track of gensim model training (word2vec, lda...)'''
@@ -303,7 +303,7 @@ class SimilarityMeasures():
                         file_model_lsi, 
                         num_of_topics=100, 
                         num_iter=10, 
-                        pyuse_stored_model=True):
+                        use_stored_model=True):
         """ Build LSI model (using gensim).
         
         Args:
