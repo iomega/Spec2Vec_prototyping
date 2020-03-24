@@ -3,4 +3,4 @@
 
 
 ## Proper documentation yet to come....
-So far: Workshop for LC MS-MS spectra is described in Jupyter notebooks in notebooks/ folder.
+So far: Workflow for LC MS-MS spectra is documented in Jupyter notebooks in notebooks/ folder.
