@@ -319,6 +319,9 @@ def cosine_score_matrix(spectra,
         Set to 'None' to avoid saving matrix on the way.
     """   
     if filename is not None:
+        if filename[-4:] != '.npy':
+            filename = filename + '.npy'
+
         # Try loading saved data
         try: 
             print("Loading similarity scores from", filename)
@@ -395,8 +398,8 @@ def cosine_score_matrix(spectra,
                 if filename is not None \
                 and safety_points is not None:
                     if (counting+1) % safety_save == 0:
-                        np.save(filename[:-4]+ str(i), modcos_sim)
-                        np.save(filename[:-4]+ "_matches.npy" + str(i), modcos_matches)
+                        np.save(filename, modcos_sim)
+                        np.save(filename[:-4] + "_matches.npy", modcos_matches)
 
         # Symmetric matrix --> fill        
         for i in range(1, len(spectra)):
