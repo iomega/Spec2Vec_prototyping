@@ -795,7 +795,7 @@ def load_MGF_data(file_mgf,
 
         # Save collected data ----------------------------------------------------------------------
         print()
-        if collect_new_data == True:
+        if collect_new_data == True and file_json is not None:
             # Store spectra
             print(20 * '--')
             print("Saving spectra...")
