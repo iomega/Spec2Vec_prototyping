@@ -321,7 +321,9 @@ def cosine_score_matrix(spectra,
     if filename is not None:
         # Try loading saved data
         try: 
+            print("Loading similarity scores from", filename)
             modcos_sim = np.load(filename)
+            print("Loading min_match values from", filename[:-4]+ "_matches.npy")
             modcos_matches = np.load(filename[:-4]+ "_matches.npy")
             
             # Check if matrix was calculated to the end:
@@ -341,7 +343,7 @@ def cosine_score_matrix(spectra,
                 collect_new_data = False
                 
         except FileNotFoundError: 
-            print("Could not find file ", filename) 
+            print("Could not find file ", filename, "or file", filename[:-4]+ "_matches.npy") 
             if mass_shifting:
                 print("Modified cosine scores will be calculated from scratch.")
             else:
